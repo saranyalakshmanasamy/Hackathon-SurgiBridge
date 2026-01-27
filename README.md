@@ -1,309 +1,113 @@
----
+# Clinical Registry System
 
-# Hybrid Voice-to-Structured-Data Clinical Registry System
+A Hybrid Voice-to-Structured-Data Clinical Registry System that enables clinicians to capture clinical data through voice recording or document scanning, automatically extract structured registry fields, and review/confirm results.
 
-## 1. Purpose
-
-Build a hybrid voice-to-structured-data system that allows clinicians to **speak freely after surgery**, automatically **extract structured registry fields**, and **review and confirm the results in under 30 seconds**.
-
-The system is optimized for post-operative documentation with minimal cognitive load and minimal manual data entry.
-
----
-
-## 2. Primary Users
-
-* Surgeons
-* Clinicians
-* Theatre Nurses
-* Ward Nurses
-
----
-
-## 3. Usage Contexts
-
-* Operating Theatre (immediate post-op)
-* Inpatient Unit (ward documentation)
-* Office / Desktop (post-discharge completion)
-
----
-
-## 4. User Goals
-
-1. Capture free-form clinical narration via voice
-2. Automatically populate structured registry data
-3. Review, confirm, and submit with minimal interaction
-4. Resume incomplete drafts at a later time without data loss
-
----
-
-## 5. Functional Requirements
-
-### FR-1: Voice Capture
-
-**Description**
-Allow clinicians to record free-form voice notes describing procedures, outcomes, complications, and reasoning.
-
-**Requirements**
-
-* Support recording via:
-
-  * Mobile browsers (iOS / Android)
-  * Desktop browsers
-* Support pause / resume recording
-* Audio recordings must be encrypted at rest
-* Audio must be associated with:
-
-  * Patient identifier
-  * Encounter / procedure identifier
-  * User identifier
-  * Timestamp
-
----
-
-### FR-2: Medical Transcription
-
-**Description**
-Convert recorded audio into medical-grade text transcription.
-
-**Requirements**
-
-* Use medical-grade speech-to-text
-* Support two modes:
-
-  * Near-real-time transcription (theatre / ward)
-  * Batch transcription (post-op / office)
-* Preserve timestamps per utterance
-* Store transcription output linked to original audio
-
----
-
-### FR-3: Structured Data Extraction
-
-**Description**
-Extract structured registry fields and clinical narratives from transcription.
-
-**Requirements**
-
-* Extract structured clinical entities including:
-
-  * Procedures
-  * Diagnoses
-  * Complications
-  * Anatomy
-  * Devices
-* Extract narrative explanations and clinical reasoning
-* Generate structured JSON output
-* Assign a **confidence score (0.0–1.0)** to each extracted field
-* For each extracted field, store traceability metadata including the originating transcription text, extraction method, and time of extraction.
-
----
-
-### FR-4: De-duplication and Pre-fill
-
-**Description**
-Reduce clinician workload by pre-filling known data from existing systems.
-
-**Requirements**
-
-* Automatically pre-fill the following fields where available:
-
-  * Patient demographics
-  * Procedure codes
-  * Surgeon
-  * Date and time
-* Prevent re-entry of existing data unless explicitly edited
-* Clearly distinguish:
-
-  * System-derived fields
-  * Voice-extracted fields
-  * Manually edited fields
-
----
-
-### FR-5: Draft Registry Record
-
-**Description**
-Persist extracted data as a draft registry entry prior to clinician confirmation.
-
-**Requirements**
-
-* Store draft in database with:
-
-  * Field values
-  * Confidence scores
-  * Provenance metadata
-* Draft must persist even if:
-
-  * Session is abandoned
-  * Browser is closed
-* Support deferred completion
-
----
-
-### FR-6: Clinician Review & Confirmation
-
-**Description**
-Provide a rapid, single-screen review experience.
-
-**Display Requirements**
-
-* Single screen only
-* No pagination
-* Display all extracted fields
-* Highlight only:
-
-  * Low-confidence fields
-  * Required but missing fields
-
-**Interaction Requirements**
-
-* Tap ✔️ to accept a field
-* Tap a field to edit
-* No long-form text editing by default
-* No mandatory typing if confidence is high
-* Submit disabled until all required fields are confirmed
-
----
-
-### FR-7: Final Submission
-
-**Description**
-Persist the confirmed registry record as final.
-
-**Requirements**
-
-* On submission:
-
-  * Persist final record to registry database
-  * Lock record from further editing (unless role permits)
-* Maintain a full audit trail:
-
-  * Original extracted values
-  * Edits made
-  * User identity
-  * Timestamps
-
----
-
-## 6. Confidence Scoring Rules
-
-Each extracted field must include a confidence score between **0.0 and 1.0**.
-
-**UI Behavior**
-
-* ≥ 0.85 → Auto-accepted (green)
-* 0.60–0.84 → Review suggested (yellow)
-* < 0.60 → Required review (red)
-
-Confidence scoring must be deterministic and reproducible for the same input.
-
----
-
-## 7. Non-Functional Requirements
-
-### Performance
-
-* End-to-end processing time: **< 2 minutes**
-* Review UI load time: **< 1 second**
-
-### Usability
-
-* Maximum one screen for review
-* Designed for completion in **< 30 seconds**
-* Voice-first, typing optional
-
-### Security & Compliance
-
-* All data encrypted in transit and at rest
-* IAM-based access control
-* Designed to support HIPAA / healthcare compliance requirements
-
-### Reliability
-
-* Drafts must persist across sessions
-* System must support deferred completion
-* No data loss on client or network failure
-
----
-
-## 8. System Architecture (AWS + TypeScript)
+## Project Structure
 
 ```
-Mobile / Web App (Theatre / Ward / Office)
-        |
-        |  Encrypted Audio
-        v
-API Gateway
-        |
-        v
-Lambda (Audio ingestion + metadata)
-        |
-        v
-S3 (Encrypted audio storage)
-        |
-        v
-Amazon Transcribe Medical
-        |
-        v
-Lambda (Post-processing & normalization)
-        |
-        v
-Amazon Comprehend Medical + LLM
-        |
-        v
-Structured JSON (Draft Registry Entry)
-        |
-        v
-DynamoDB
-        |
-        v
-Frontend Review Screen (<30s completion)
+clinical-registry-system/
+├── packages/
+│   ├── frontend/          # React frontend application
+│   │   ├── src/
+│   │   ├── public/
+│   │   └── package.json
+│   └── backend/           # AWS Lambda backend services
+│       ├── src/
+│       │   ├── infrastructure/  # AWS CDK infrastructure code
+│       │   ├── lambdas/         # Lambda function handlers
+│       │   └── config/          # Configuration files
+│       └── package.json
+└── package.json           # Root package.json for monorepo
+
 ```
 
----
+## Technology Stack
 
-## 9. Data Contracts (High-Level)
+### Frontend
+- React 18+ with TypeScript
+- Tailwind CSS for styling
+- Lucide React for icons
+- Vite for build tooling
 
-### Draft Registry Entry (JSON)
+### Backend
+- AWS Lambda (Node.js 20.x with TypeScript)
+- AWS CDK for infrastructure as code
+- DynamoDB for data storage
+- S3 for file storage
+- API Gateway for REST and WebSocket APIs
+- Amazon Transcribe Medical for speech-to-text
+- Amazon Textract for OCR
+- Amazon Comprehend Medical for entity extraction
 
-* patientId
-* encounterId
-* extractedFields[]
+## Getting Started
 
-  * fieldName
-  * value
-  * confidence
-  * sourceText
-  * provenance
-* status: draft | submitted
-* auditTrail[]
+### Prerequisites
+- Node.js 20.x or higher
+- AWS CLI configured with appropriate credentials
+- AWS CDK CLI installed globally: `npm install -g aws-cdk`
 
----
+### Installation
 
-## 10. Testing & Verification Requirements
+1. Install dependencies:
+```bash
+npm install
+```
 
-* Unit tests for:
+2. Install frontend dependencies:
+```bash
+npm install --workspace=packages/frontend
+```
 
-  * Audio ingestion
-  * Transcription processing
-  * Entity extraction
-  * Confidence scoring
-* Integration tests for:
+3. Install backend dependencies:
+```bash
+npm install --workspace=packages/backend
+```
 
-  * Full pipeline from audio → draft record
-* Performance tests validating SLA thresholds
+### Development
 
-### Manual & UI Testing
+#### Frontend Development
+```bash
+npm run frontend
+```
+This starts the Vite development server on http://localhost:3000
 
-* Use Chrome DevTools (via MCP server) to:
+#### Backend Development
 
-  * Verify audio capture
-  * Verify transcription output
-  * Verify UI load time
-  * Verify review interactions
-* Validate:
+1. Build the backend:
+```bash
+npm run backend
+```
 
-  * Draft persistence
-  * Deferred completion
-  * Confidence-based UI behavior
+2. Deploy infrastructure:
+```bash
+cd packages/backend
+npm run deploy
+```
 
+### Infrastructure
+
+The AWS CDK stack includes:
+- DynamoDB table with 3 Global Secondary Indexes
+- 3 S3 buckets (audio, images, reports) with KMS encryption
+- API Gateway with REST endpoints
+- IAM roles and policies for Lambda functions
+- CloudWatch logging and X-Ray tracing
+- KMS key for encryption at rest
+
+### Testing
+
+Run all tests:
+```bash
+npm test
+```
+
+## Security
+
+- All data encrypted at rest using AWS KMS
+- All data encrypted in transit using TLS 1.2+
+- IAM-based access control
+- Immutable audit trails at database level
+
+## License
+
+Private - All rights reserved
