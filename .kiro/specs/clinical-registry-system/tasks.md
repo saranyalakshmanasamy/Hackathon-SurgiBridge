@@ -17,8 +17,8 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
   - Configure CloudWatch logging and X-Ray tracing
   - _Requirements: 11.7, 11.8_
 
-- [ ] 2. Implement voice recording component (frontend)
-  - [ ] 2.1 Create VoiceRecordingComponent with MediaRecorder API integration
+- [-] 2. Implement voice recording component (frontend)
+  - [x] 2.1 Create VoiceRecordingComponent with MediaRecorder API integration
     - Implement startRecording, pauseRecording, resumeRecording, stopRecording methods
     - Handle browser permission requests
     - Implement recording state management (idle, recording, paused, stopped)
@@ -36,8 +36,8 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
     - Test error states (no microphone, permission denied)
     - _Requirements: 1.1, 1.2, 1.3_
 
-- [ ] 3. Implement document scanning component (frontend)
-  - [ ] 3.1 Create DocumentScanningComponent with camera/file input
+- [x] 3. Implement document scanning component (frontend)
+  - [x] 3.1 Create DocumentScanningComponent with camera/file input
     - Implement captureImage for mobile camera access
     - Implement file upload for desktop scanner/webcam
     - Support JPEG, PNG, PDF formats
@@ -61,8 +61,8 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
     - Test preprocessing functions
     - _Requirements: 2.1, 2.2, 2.9_
 
-- [ ] 4. Implement ingestion Lambda function (backend)
-  - [ ] 4.1 Create IngestionLambda with audio and image upload handlers
+- [-] 4. Implement ingestion Lambda function (backend)
+  - [x] 4.1 Create IngestionLambda with audio and image upload handlers
     - Implement request validation (authentication, payload structure)
     - Generate unique record IDs
     - Upload to S3 with SSE-KMS encryption

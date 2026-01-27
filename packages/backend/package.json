@@ -6,8 +6,10 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest --run",
-    "deploy": "cdk deploy",
-    "synth": "cdk synth"
+    "deploy": "npx cdk deploy",
+    "synth": "npx cdk synth",
+    "bootstrap": "npx cdk bootstrap",
+    "diff": "npx cdk diff"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.478.0",

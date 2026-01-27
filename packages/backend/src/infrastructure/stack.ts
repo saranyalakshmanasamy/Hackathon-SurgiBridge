@@ -1,11 +1,14 @@
 import * as cdk from 'aws-cdk-lib';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import * as kms from 'aws-cdk-lib/aws-kms';
 import { Construct } from 'constructs';
+import * as path from 'path';
 
 export class ClinicalRegistryStack extends cdk.Stack {
   public readonly registryTable: dynamodb.Table;
@@ -233,6 +236,58 @@ export class ClinicalRegistryStack extends cdk.Stack {
       retention: logs.RetentionDays.ONE_MONTH,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
+
+    // Ingestion Lambda Function
+    const ingestionLambda = new nodejs.NodejsFunction(this, 'IngestionLambda', {
+      runtime: lambda.Runtime.NODEJS_20_X,
+      handler: 'handler',
+      entry: path.join(__dirname, '../lambdas/ingestion/handler.ts'),
+      role: lambdaRole,
+      timeout: cdk.Duration.seconds(30),
+      memorySize: 512,
+      environment: {
+        REGISTRY_TABLE_NAME: this.registryTable.tableName,
+        AUDIO_BUCKET_NAME: this.audioBucket.bucketName,
+        IMAGES_BUCKET_NAME: this.imagesBucket.bucketName,
+        REPORTS_BUCKET_NAME: this.reportsBucket.bucketName,
+        KMS_KEY_ID: this.kmsKey.keyId,
+        AWS_REGION: this.region,
+      },
+      bundling: {
+        minify: true,
+        sourceMap: true,
+        target: 'es2020',
+        externalModules: ['@aws-sdk/*'],
+      },
+      tracing: lambda.Tracing.ACTIVE,
+    });
+
+    // API Gateway Integration
+    const ingestResource = this.api.root.addResource('ingest');
+    ingestResource.addMethod(
+      'POST',
+      new apigateway.LambdaIntegration(ingestionLambda, {
+        proxy: true,
+        integrationResponses: [
+          {
+            statusCode: '200',
+            responseParameters: {
+              'method.response.header.Access-Control-Allow-Origin': "'*'",
+            },
+          },
+        ],
+      }),
+      {
+        methodResponses: [
+          {
+            statusCode: '200',
+            responseParameters: {
+              'method.response.header.Access-Control-Allow-Origin': true,
+            },
+          },
+        ],
+      }
+    );
 
     // Output values
     new cdk.CfnOutput(this, 'RegistryTableName', {
