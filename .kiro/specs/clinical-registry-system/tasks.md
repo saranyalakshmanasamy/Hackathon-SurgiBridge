@@ -89,7 +89,7 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
     - Test error handling for invalid inputs
     - _Requirements: 1.4, 1.5, 2.7, 2.8_
 
-- [ ] 5. Checkpoint - Ensure ingestion pipeline works
+- [x] 5. Checkpoint - Ensure ingestion pipeline works
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 6. Implement transcription service integration (backend)
@@ -121,8 +121,8 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
     - Test error handling
     - _Requirements: 3.1, 3.2, 3.3, 3.6_
 
-- [ ] 7. Implement OCR service integration (backend)
-  - [ ] 7.1 Create OCRService wrapper for Amazon Textract
+- [x] 7. Implement OCR service integration (backend)
+  - [x] 7.1 Create OCRService wrapper for Amazon Textract
     - Implement startOCR with DetectDocumentText API
     - Implement getOCRStatus for polling
     - Implement getOCRResult with text blocks and confidence scores
@@ -152,7 +152,7 @@ This implementation plan breaks down the Hybrid Voice-to-Structured-Data Clinica
     - _Requirements: 2.5, 2.6, 2.10, 2.11_
 
 - [ ] 8. Implement structured extraction service (backend)
-  - [ ] 8.1 Create StructuredExtractionService with Comprehend Medical and LLM integration
+  - [x] 8.1 Create StructuredExtractionService with Comprehend Medical and LLM integration
     - Implement extractEntities using Comprehend Medical DetectEntities API
     - Implement LLM-based structured field mapping (GPT-4 or Bedrock)
     - Implement calculateConfidence with source-specific adjustments

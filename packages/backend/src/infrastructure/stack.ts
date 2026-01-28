@@ -9,6 +9,10 @@ import * as logs from 'aws-cdk-lib/aws-logs';
 import * as kms from 'aws-cdk-lib/aws-kms';
 import { Construct } from 'constructs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export class ClinicalRegistryStack extends cdk.Stack {
   public readonly registryTable: dynamodb.Table;
@@ -251,7 +255,7 @@ export class ClinicalRegistryStack extends cdk.Stack {
         IMAGES_BUCKET_NAME: this.imagesBucket.bucketName,
         REPORTS_BUCKET_NAME: this.reportsBucket.bucketName,
         KMS_KEY_ID: this.kmsKey.keyId,
-        AWS_REGION: this.region,
+        // AWS_REGION is automatically set by Lambda runtime, don't set it manually
       },
       bundling: {
         minify: true,

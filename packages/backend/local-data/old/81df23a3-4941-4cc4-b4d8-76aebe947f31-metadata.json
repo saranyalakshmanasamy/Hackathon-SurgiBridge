@@ -1,0 +1,21 @@
+{
+  "recordId": "81df23a3-4941-4cc4-b4d8-76aebe947f31",
+  "patientId": "patient-demo-001",
+  "encounterId": "encounter-demo-001",
+  "userId": "user-demo-001",
+  "contentType": "audio",
+  "metadata": {
+    "timestamp": "2026-01-28T00:22:58.332Z",
+    "deviceInfo": {
+      "deviceType": "desktop",
+      "platform": "Win32",
+      "browser": "Safari/537.36"
+    },
+    "context": "office"
+  },
+  "timestamp": "2026-01-28T00:22:58.361Z",
+  "filePath": "C:\\Users\\Saranya.Lakshmanas\\workspaces\\Hackathon\\SurgiBridge\\packages\\backend\\local-data\\81df23a3-4941-4cc4-b4d8-76aebe947f31-audio.webm",
+  "s3Key": "patient-demo-001/encounter-demo-001/81df23a3-4941-4cc4-b4d8-76aebe947f31/audio.webm",
+  "status": "draft",
+  "versionNumber": "0.0"
+}

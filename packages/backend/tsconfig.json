@@ -14,11 +14,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "local-server.ts"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

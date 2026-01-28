@@ -1,0 +1,139 @@
+{
+  "recordId": "b60f65b2-5da6-4d20-9ef3-0a5ce24d0742",
+  "patientId": "patient-demo-001",
+  "encounterId": "encounter-demo-001",
+  "userId": "user-demo-001",
+  "contentType": "image",
+  "metadata": {
+    "timestamp": "2026-01-28T01:24:18.564Z",
+    "deviceInfo": {
+      "deviceType": "desktop",
+      "platform": "Win32",
+      "browser": "Safari/537.36"
+    },
+    "context": "office"
+  },
+  "timestamp": "2026-01-28T01:24:18.580Z",
+  "filePath": "C:\\Users\\Saranya.Lakshmanas\\workspaces\\Hackathon\\SurgiBridge\\packages\\backend\\local-data\\b60f65b2-5da6-4d20-9ef3-0a5ce24d0742-image.jpg",
+  "s3Key": "patient-demo-001/encounter-demo-001/b60f65b2-5da6-4d20-9ef3-0a5ce24d0742/image.jpg",
+  "status": "draft",
+  "versionNumber": "0.0",
+  "processingJobId": "ocr-job-1769563458582-nwm0oo247",
+  "ocrResult": {
+    "jobId": "ocr-job-1769563458582-nwm0oo247",
+    "extractedText": "OPERATIVE NOTE\n\nPatient: Robert Martinez\nMRN: 33445566\nDOB: 07/10/1972\nDate: 28/01/2026\n\nSurgeon: Dr. Michael Chen\nProcedure: Laparoscopic inguinal hernia repair\n\nIndication: Right inguinal hernia\n\nFindings:\n- Indirect inguinal hernia, 3cm defect\n- No incarceration or strangulation\n- Normal bowel appearance\n\nProcedure performed:\n- Three-port laparoscopic approach\n- Hernia sac reduced\n- Mesh placement (10x15cm polypropylene)\n- Secured with tacks and fibrin glue\n\nComplications: None\n\nEBL: 25 mL\n\nVital Signs Post-Op:\n- BP: 125/80 mmHg\n- HR: 75 bpm\n- SpO2: 97% on room air\n- Temp: 36.9°C\n\nPost-op plan:\n- No heavy lifting for 6 weeks\n- Pain management with acetaminophen\n- Return to light activity in 1 week\n- Follow-up 2 weeks",
+    "confidence": 0.8442210780521102,
+    "documentType": "printed",
+    "blockCount": 29
+  },
+  "extractionResult": {
+    "entities": [
+      {
+        "type": "procedure",
+        "value": "Laparoscopic inguinal hernia repair",
+        "confidence": 0.92,
+        "sourceText": "Procedure: Laparoscopic inguinal hernia repair",
+        "sourceOffset": 115
+      },
+      {
+        "type": "procedure",
+        "value": "Laparoscopic inguinal",
+        "confidence": 0.92,
+        "sourceText": "Laparoscopic inguinal",
+        "sourceOffset": 126
+      },
+      {
+        "type": "procedure",
+        "value": "laparoscopic approach",
+        "confidence": 0.92,
+        "sourceText": "laparoscopic approach",
+        "sourceOffset": 344
+      },
+      {
+        "type": "procedure",
+        "value": "hernia repair",
+        "confidence": 0.92,
+        "sourceText": "hernia repair",
+        "sourceOffset": 148
+      },
+      {
+        "type": "diagnosis",
+        "value": "Right inguinal hernia",
+        "confidence": 0.88,
+        "sourceText": "Indication: Right inguinal hernia",
+        "sourceOffset": 163
+      },
+      {
+        "type": "vital_sign",
+        "value": "125/80",
+        "confidence": 0.95,
+        "sourceText": "BP: 125/80 mmHg",
+        "sourceOffset": 522
+      },
+      {
+        "type": "vital_sign",
+        "value": "75",
+        "confidence": 0.95,
+        "sourceText": "HR: 75 bpm",
+        "sourceOffset": 540
+      },
+      {
+        "type": "vital_sign",
+        "value": "97",
+        "confidence": 0.95,
+        "sourceText": "SpO2: 97%",
+        "sourceOffset": 553
+      },
+      {
+        "type": "vital_sign",
+        "value": "36.9",
+        "confidence": 0.95,
+        "sourceText": "Temp: 36.9°C",
+        "sourceOffset": 577
+      }
+    ],
+    "narratives": [
+      {
+        "type": "reasoning",
+        "text": "Right inguinal hernia\n\nFindings:\n- Indirect inguinal hernia, 3cm defect\n- No incarceration or strangulation\n- Normal bowel appearance\n\nProcedure performed:\n- Three-port laparoscopic approach\n- Hernia sac reduced\n- Mesh placement (10x15cm polypropylene)\n- Secured with tacks and fibrin glue\n\nComplications: None\n\nEBL: 25 mL\n\nVital Signs Post-Op:\n- BP: 125/80 mmHg\n- HR: 75 bpm\n- SpO2: 97% on room air\n- Temp: 36.9°C\n\nPost-op plan:\n- No heavy lifting for 6 weeks\n- Pain management with acetaminophen\n- Return to light activity in 1 week\n- Follow-up 2 weeks",
+        "relatedEntities": []
+      },
+      {
+        "type": "observation",
+        "text": "- Indirect inguinal hernia, 3cm defect\n- No incarceration or strangulation\n- Normal bowel appearance\n\nProcedure performed:\n- Three-port laparoscopic approach\n- Hernia sac reduced\n- Mesh placement (10x15cm polypropylene)\n- Secured with tacks and fibrin glue",
+        "relatedEntities": []
+      }
+    ],
+    "metadata": {
+      "source": "scan",
+      "sourceText": "OPERATIVE NOTE\n\nPatient: Robert Martinez\nMRN: 33445566\nDOB: 07/10/1972\nDate: 28/01/2026\n\nSurgeon: Dr. Michael Chen\nProcedure: Laparoscopic inguinal hernia repair\n\nIndication: Right inguinal hernia\n\nFindings:\n- Indirect inguinal hernia, 3cm defect\n- No incarceration or strangulation\n- Normal bowel appearance\n\nProcedure performed:\n- Three-port laparoscopic approach\n- Hernia sac reduced\n- Mesh placement (10x15cm polypropylene)\n- Secured with tacks and fibrin glue\n\nComplications: None\n\nEBL: 25 mL\n\nV",
+      "extractionMethod": "hybrid",
+      "extractionTimestamp": "2026-01-28T01:24:20.613Z",
+      "modelVersion": "mock-v1.0"
+    }
+  },
+  "structuredData": {
+    "patientName": "Robert Martinez",
+    "mrn": "33445566",
+    "dateOfBirth": "07/10/1972",
+    "procedureName": "Laparoscopic inguinal hernia repair",
+    "procedureCode": "49505",
+    "surgeonName": "Dr. Michael Chen",
+    "primaryDiagnosis": "Right inguinal hernia",
+    "secondaryDiagnoses": [],
+    "complications": [],
+    "devices": [],
+    "medications": [],
+    "vitalSigns": {
+      "bloodPressure": "125/80",
+      "heartRate": 75,
+      "oxygenSaturation": 97,
+      "temperature": 36.9
+    },
+    "clinicalReasoning": "Right inguinal hernia\n\nFindings:\n- Indirect inguinal hernia, 3cm defect\n- No incarceration or strangulation\n- Normal bowel appearance\n\nProcedure performed:\n- Three-port laparoscopic approach\n- Hernia sac reduced\n- Mesh placement (10x15cm polypropylene)\n- Secured with tacks and fibrin glue\n\nComplications: None\n\nEBL: 25 mL\n\nVital Signs Post-Op:\n- BP: 125/80 mmHg\n- HR: 75 bpm\n- SpO2: 97% on room air\n- Temp: 36.9°C\n\nPost-op plan:\n- No heavy lifting for 6 weeks\n- Pain management with acetaminophen\n- Return to light activity in 1 week\n- Follow-up 2 weeks",
+    "postOpNotes": "- No heavy lifting for 6 weeks\n- Pain management with acetaminophen\n- Return to light activity in 1 week\n- Follow-up 2 weeks",
+    "overallConfidence": 0.928888888888889,
+    "dataCompleteness": 83.33333333333334
+  },
+  "processedAt": "2026-01-28T01:24:20.614Z"
+}

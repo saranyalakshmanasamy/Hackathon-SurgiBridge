@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { ClinicalRegistryStack } from './stack';
+import { ClinicalRegistryStack } from './stack.js';
 
 const app = new cdk.App();
 

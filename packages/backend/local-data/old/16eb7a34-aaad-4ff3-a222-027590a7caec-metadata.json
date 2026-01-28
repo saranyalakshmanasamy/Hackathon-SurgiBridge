@@ -1,0 +1,270 @@
+{
+  "recordId": "16eb7a34-aaad-4ff3-a222-027590a7caec",
+  "patientId": "patient-demo-001",
+  "encounterId": "encounter-demo-001",
+  "userId": "user-demo-001",
+  "contentType": "image",
+  "metadata": {
+    "timestamp": "2026-01-28T01:11:45.922Z",
+    "deviceInfo": {
+      "deviceType": "desktop",
+      "platform": "Win32",
+      "browser": "Safari/537.36"
+    },
+    "context": "office"
+  },
+  "timestamp": "2026-01-28T01:11:45.974Z",
+  "filePath": "C:\\Users\\Saranya.Lakshmanas\\workspaces\\Hackathon\\SurgiBridge\\packages\\backend\\local-data\\16eb7a34-aaad-4ff3-a222-027590a7caec-image.jpg",
+  "s3Key": "patient-demo-001/encounter-demo-001/16eb7a34-aaad-4ff3-a222-027590a7caec/image.jpg",
+  "status": "draft",
+  "versionNumber": "0.0",
+  "processingJobId": "ocr-job-1769562705978-8hrpj8dcs",
+  "ocrResult": {
+    "jobId": "ocr-job-1769562705978-8hrpj8dcs",
+    "extractedText": "CLINICAL PROCEDURE NOTE\n\nPatient: Jane Doe\nMRN: 11223344\nDOB: 05/15/1978\nDate of Procedure: 28/01/2026\n\nPROCEDURE: Laparoscopic Cholecystectomy\n\nSURGEON: Dr. Sarah Johnson\n\nINDICATION: 45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.\n\nPROCEDURE DETAILS:\nPatient was brought to the operating theatre and placed in supine position. General anesthesia was induced without complications. Abdomen was prepped and draped in sterile fashion.\n\nFour-port laparoscopic approach was utilized. Pneumoperitoneum established with Veress needle. Ports placed at umbilicus (12mm), epigastrium (10mm), and right subcostal region (two 5mm ports).\n\nGallbladder was identified and appeared inflamed with multiple stones visible. Calot's triangle was carefully dissected. Cystic artery and cystic duct were identified, clipped, and divided. Gallbladder was dissected from liver bed using electrocautery.\n\nSpecimen was placed in retrieval bag and removed through umbilical port. Hemostasis was confirmed. Ports were removed under direct visualization. Fascia closed at 12mm port site. Skin closed with subcuticular sutures.\n\nFINDINGS:\n- Inflamed gallbladder with multiple stones\n- No evidence of bile duct injury\n- Liver appeared normal\n- No other abnormalities noted\n\nESTIMATED BLOOD LOSS: 50 mL\n\nCOMPLICATIONS: None\n\nSPECIMENS: Gallbladder with stones sent to pathology\n\nCONDITION: Patient tolerated procedure well and transferred to recovery in stable condition.\n\nVITAL SIGNS POST-OP:\n- BP: 120/75 mmHg\n- HR: 72 bpm\n- SpO2: 98% on room air\n- Temp: 36.8°C\n\nPLAN:\n- Routine post-operative care\n- Pain management with oral analgesics\n- Diet as tolerated\n- Discharge home same day if stable\n- Follow-up in 2 weeks\n\nDr. Sarah Johnson, MD\nGeneral Surgery\nLicense: MD12345",
+    "confidence": 0.855460031057516,
+    "documentType": "printed",
+    "blockCount": 36
+  },
+  "extractionResult": {
+    "entities": [
+      {
+        "type": "procedure",
+        "value": "28/01/2026",
+        "confidence": 0.92,
+        "sourceText": "Procedure: 28/01/2026",
+        "sourceOffset": 81
+      },
+      {
+        "type": "procedure",
+        "value": "Laparoscopic Cholecystectomy",
+        "confidence": 0.92,
+        "sourceText": "PROCEDURE: Laparoscopic Cholecystectomy",
+        "sourceOffset": 104
+      },
+      {
+        "type": "procedure",
+        "value": "Laparoscopic Cholecystectomy",
+        "confidence": 0.92,
+        "sourceText": "Laparoscopic Cholecystectomy",
+        "sourceOffset": 115
+      },
+      {
+        "type": "procedure",
+        "value": "laparoscopic approach",
+        "confidence": 0.92,
+        "sourceText": "laparoscopic approach",
+        "sourceOffset": 477
+      },
+      {
+        "type": "procedure",
+        "value": "Cholecystectomy",
+        "confidence": 0.92,
+        "sourceText": "Cholecystectomy",
+        "sourceOffset": 128
+      },
+      {
+        "type": "diagnosis",
+        "value": "45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.",
+        "confidence": 0.88,
+        "sourceText": "INDICATION: 45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.",
+        "sourceOffset": 173
+      },
+      {
+        "type": "diagnosis",
+        "value": "cholelithiasis",
+        "confidence": 0.88,
+        "sourceText": "cholelithiasis",
+        "sourceOffset": 221
+      },
+      {
+        "type": "anatomy",
+        "value": "Gallbladder",
+        "confidence": 0.9,
+        "sourceText": "Gallbladder",
+        "sourceOffset": 661
+      },
+      {
+        "type": "anatomy",
+        "value": "Gallbladder",
+        "confidence": 0.9,
+        "sourceText": "Gallbladder",
+        "sourceOffset": 851
+      },
+      {
+        "type": "anatomy",
+        "value": "liver",
+        "confidence": 0.9,
+        "sourceText": "liver",
+        "sourceOffset": 882
+      },
+      {
+        "type": "anatomy",
+        "value": "gallbladder",
+        "confidence": 0.9,
+        "sourceText": "gallbladder",
+        "sourceOffset": 1155
+      },
+      {
+        "type": "anatomy",
+        "value": "Liver",
+        "confidence": 0.9,
+        "sourceText": "Liver",
+        "sourceOffset": 1224
+      },
+      {
+        "type": "anatomy",
+        "value": "Gallbladder",
+        "confidence": 0.9,
+        "sourceText": "Gallbladder",
+        "sourceOffset": 1339
+      },
+      {
+        "type": "anatomy",
+        "value": "Calot's triangle",
+        "confidence": 0.9,
+        "sourceText": "Calot's triangle",
+        "sourceOffset": 740
+      },
+      {
+        "type": "device",
+        "value": "Veress needle",
+        "confidence": 0.85,
+        "sourceText": "Veress needle",
+        "sourceOffset": 547
+      },
+      {
+        "type": "device",
+        "value": "5mm port",
+        "confidence": 0.85,
+        "sourceText": "5mm port",
+        "sourceOffset": 648
+      },
+      {
+        "type": "device",
+        "value": "12mm port",
+        "confidence": 0.85,
+        "sourceText": "12mm port",
+        "sourceOffset": 1078
+      },
+      {
+        "type": "device",
+        "value": "retrieval bag",
+        "confidence": 0.85,
+        "sourceText": "retrieval bag",
+        "sourceOffset": 938
+      },
+      {
+        "type": "vital_sign",
+        "value": "120/75",
+        "confidence": 0.95,
+        "sourceText": "BP: 120/75 mmHg",
+        "sourceOffset": 1499
+      },
+      {
+        "type": "vital_sign",
+        "value": "72",
+        "confidence": 0.95,
+        "sourceText": "HR: 72 bpm",
+        "sourceOffset": 1517
+      },
+      {
+        "type": "vital_sign",
+        "value": "98",
+        "confidence": 0.95,
+        "sourceText": "SpO2: 98%",
+        "sourceOffset": 1530
+      },
+      {
+        "type": "vital_sign",
+        "value": "36.8",
+        "confidence": 0.95,
+        "sourceText": "Temp: 36.8°C",
+        "sourceOffset": 1554
+      },
+      {
+        "type": "medication",
+        "value": "analgesics",
+        "confidence": 0.87,
+        "sourceText": "analgesics",
+        "sourceOffset": 1632
+      }
+    ],
+    "narratives": [
+      {
+        "type": "reasoning",
+        "text": "45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.",
+        "relatedEntities": []
+      },
+      {
+        "type": "explanation",
+        "text": "Patient was brought to the operating theatre and placed in supine position. General anesthesia was induced without complications. Abdomen was prepped and draped in sterile fashion.\n\nFour-port laparoscopic approach was utilized. Pneumoperitoneum established with Veress needle. Ports placed at umbilicus (12mm), epigastrium (10mm), and right subcostal region (two 5mm ports).\n\nGallbladder was identified and appeared inflamed with multiple stones visible. Calot's triangle was carefully dissected. Cystic artery and cystic duct were identified, clipped, and divided. Gallbladder was dissected from liver bed using electrocautery.\n\nSpecimen was placed in retrieval bag and removed through umbilical port. Hemostasis was confirmed. Ports were removed under direct visualization. Fascia closed at 12mm port site. Skin closed with subcuticular sutures.",
+        "relatedEntities": []
+      },
+      {
+        "type": "observation",
+        "text": "- Inflamed gallbladder with multiple stones\n- No evidence of bile duct injury\n- Liver appeared normal\n- No other abnormalities noted",
+        "relatedEntities": []
+      }
+    ],
+    "metadata": {
+      "source": "scan",
+      "sourceText": "CLINICAL PROCEDURE NOTE\n\nPatient: Jane Doe\nMRN: 11223344\nDOB: 05/15/1978\nDate of Procedure: 28/01/2026\n\nPROCEDURE: Laparoscopic Cholecystectomy\n\nSURGEON: Dr. Sarah Johnson\n\nINDICATION: 45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.\n\nPROCEDURE DETAILS:\nPatient was brought to the operating theatre and placed in supine position. General anesthesia was induced without complications. Abdomen was prepped and draped in sterile fashion.\n\nFour-port laparoscopic approach w",
+      "extractionMethod": "hybrid",
+      "extractionTimestamp": "2026-01-28T01:11:48.072Z",
+      "modelVersion": "mock-v1.0"
+    }
+  },
+  "structuredData": {
+    "patientName": "Jane Doe",
+    "mrn": "11223344",
+    "dateOfBirth": "05/15/1978",
+    "procedureName": "28/01/2026",
+    "procedureCode": "UNKNOWN",
+    "procedureDate": "28/01/2026",
+    "surgeonName": "Dr. Sarah Johnson",
+    "primaryDiagnosis": "45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.",
+    "secondaryDiagnoses": [
+      "cholelithiasis"
+    ],
+    "complications": [],
+    "devices": [
+      {
+        "name": "Veress needle",
+        "implanted": false
+      },
+      {
+        "name": "5mm port",
+        "implanted": false
+      },
+      {
+        "name": "12mm port",
+        "implanted": false
+      },
+      {
+        "name": "retrieval bag",
+        "implanted": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "analgesics",
+        "dose": "as needed",
+        "route": "oral",
+        "frequency": "PRN"
+      }
+    ],
+    "vitalSigns": {
+      "bloodPressure": "120/75",
+      "heartRate": 72,
+      "oxygenSaturation": 98,
+      "temperature": 36.8
+    },
+    "clinicalReasoning": "45-year-old female with symptomatic cholelithiasis and recurrent biliary colic.",
+    "procedureNotes": "Patient was brought to the operating theatre and placed in supine position. General anesthesia was induced without complications. Abdomen was prepped and draped in sterile fashion.\n\nFour-port laparoscopic approach was utilized. Pneumoperitoneum established with Veress needle. Ports placed at umbilicus (12mm), epigastrium (10mm), and right subcostal region (two 5mm ports).\n\nGallbladder was identified and appeared inflamed with multiple stones visible. Calot's triangle was carefully dissected. Cystic artery and cystic duct were identified, clipped, and divided. Gallbladder was dissected from liver bed using electrocautery.\n\nSpecimen was placed in retrieval bag and removed through umbilical port. Hemostasis was confirmed. Ports were removed under direct visualization. Fascia closed at 12mm port site. Skin closed with subcuticular sutures.",
+    "postOpNotes": "- Routine post-operative care\n- Pain management with oral analgesics\n- Diet as tolerated\n- Discharge home same day if stable\n- Follow-up in 2 weeks\n\nDr. Sarah Johnson, MD\nGeneral Surgery\nLicense: MD12345",
+    "overallConfidence": 0.9013043478260869,
+    "dataCompleteness": 100
+  },
+  "processedAt": "2026-01-28T01:11:48.073Z"
+}
